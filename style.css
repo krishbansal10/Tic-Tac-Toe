@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+    color: #fff;
+    background-color: #1bb;
+}
+
+body {
+    background-color: #1bb;
+}
+
+.select-box, .playboard, .result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.select-box {
+    background-color: #fff;
+    padding: 24px 30px 30px;
+    border-radius: 4px;
+    max-width: 450px;
+    width: 100%;
+}
+
+.select-box.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.select-box header {
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding-bottom: 12px;
+    border-bottom: 1.2px solid #ccc;
+    text-align: center;
+}
+
+.select-box .title {
+    font-size: 22.5px;
+    font-weight: 500;
+    margin: 24px 0;
+}
+
+.select-box .options {
+    display: flex;
+    width: 100%;
+}
+
+.options button {
+    width: 100%;
+    font-size: 22.5px;
+    font-weight: 500;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background-color: #1bb;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.options button:hover {
+    transform: scale(0.95);
+}
+
+.options button.playerX {
+    margin-right: 6px;
+}
+
+.options button.playerO {
+    margin-left: 6px;
+}
+
+
+.playboard {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.playboard.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.playboard .details {
+    background-color: #fff;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.playboard .details .players {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+.playboard .play-area {
+    margin-top: 25px;
+}
+
+.play-area section {
+    display: flex;
+}
+
+.players span {
+    color: #1bb;
+    width: 100%;
+    border-radius: 5px;
+    padding: 7px 0;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: default;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.players .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #1bb;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.play-area section span {
+    display: block;
+    margin: 3px;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 65px;
+    font-weight: 700;
+    text-align: center;
+    color: #1bb;
+    line-height: 150px;
+}
+
+.players.active span:first-child {
+    color: #fff;
+}
+
+.players span:first-child {
+    color: #fff;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+.players.active span:nth-child(2) {
+    color: #fff;
+}
+
+.players.active span:last-child {
+    color: #1bb;
+}
+
+.players.active span:first-child {
+    color: #1bb;
+}
+
+.result-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 6px;
+    max-width: 525px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.result-box.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box .won {
+    display: flex;
+    font-size: 37px;
+    font-weight: 400;
+    justify-content: center;
+}
+
+.result-box .won p {
+    font-weight: 700;
+    margin: 0 12px;
+}
+
+.result-box .btn {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.result-box .btn button {
+    font-size: 22.5px;
+    font-weight: 500;
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    background-color: #1bb;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.result-box .btn button:hover {
+    transform: scale(0.95);
+}
+
+@media screen and (max-width: 581px) {
+    * {
+        transform: scale(0.95);
+    }
+
+    .select-box, .playboard.show, .result-box.show {
+        margin-top: 75%;
+    }
+}
+
+@media screen and (max-width: 451) {
+    * {
+        transform: scale(0.5);
+    }
+
+    .select-box, .playboard.show, .result-box.show {
+        margin-top: 100%;
+    }
+}
